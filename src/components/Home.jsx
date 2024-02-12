@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Sidebar from "./partials/Sidebar";
 
 function Home() {
+  document.title = "Homepage";
   return (
-    <div>Home</div>
-  )
+    <>
+      <Sidebar />
+      <div className="w-[80%] h-full "></div>
+    </>
+  );
 }
 
-export default Home
+export default Home;
