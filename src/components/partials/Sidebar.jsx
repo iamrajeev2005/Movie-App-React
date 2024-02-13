@@ -19,34 +19,34 @@ function Sidebar() {
       <div className="flex flex-col gap-2">
         <h1 className="text-xl font-bold py-5">New Feeds</h1>
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-1 ri-fire-fill"></i>
+          <i className="mr-1 ri-fire-fill"></i>
           Trending
         </Link>
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-2 ri-bard-fill"></i>
+          <i className="mr-2 ri-bard-fill"></i>
           Popular
         </Link>
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-2 ri-movie-2-fill"></i>
+          <i className="mr-2 ri-movie-2-fill"></i>
           Movies
         </Link>
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-2 ri-tv-2-fill"></i>
+          <i className="mr-2 ri-tv-2-fill"></i>
           Tv Shows
         </Link>
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-2 ri-team-fill"></i>
+          <i className="mr-2 ri-team-fill"></i>
           People
         </Link>
       </div>
       <hr className="border-none bg-zinc-600 h-[1px] my-3" />
       <div className="flex flex-col gap-2">
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-2 ri-information-fill"></i>
+          <i className="mr-2 ri-information-fill"></i>
           About Us
         </Link>
         <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
-          <i class="mr-2 ri-phone-fill"></i>
+          <i className="mr-2 ri-phone-fill"></i>
           Contact us
         </Link>
       </div>

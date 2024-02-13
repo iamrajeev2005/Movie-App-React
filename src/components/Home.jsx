@@ -8,7 +8,7 @@ function Home() {
     <>
       <Sidebar />
       <div className="w-[80%] h-full ">
-        <Searchbar/>
+        <Searchbar />
       </div>
     </>
   );

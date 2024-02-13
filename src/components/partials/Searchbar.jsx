@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Searchbar() {
   const [val, setVal] = useState("");
-  const [searches, setSearches] = useState(null);
+  const [searches, setSearches] = useState([]);
 
   const getSearches = async () => {
     try {
@@ -30,7 +30,7 @@ function Searchbar() {
         />
         {val.length > 0 && (
           <div onClick={() => setVal("")} className="absolute cursor-pointer">
-            <i class="text-[#6556CD] text-3xl mr-2 ri-close-fill"></i>
+            <i className="text-[#6556CD] text-3xl mr-2 ri-close-fill"></i>
           </div>
         )}
       </div>
@@ -45,7 +45,17 @@ function Searchbar() {
                 <div className="h-[22.8vh] rounded-lg overflow-hidden flex-shrink-0 ">
                   <img
                     className="h-full w-full object-cover"
-                    src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_UF1000,1000_QL80_.jpg"
+                    src={
+                      item.poster_path ||
+                      item.backdrop_path ||
+                      item.profile_path
+                        ? `https://image.tmdb.org/t/p/w500/${
+                            item.poster_path ||
+                            item.backdrop_path ||
+                            item.profile_path
+                          }`
+                        : `https://media.istockphoto.com/id/1352945762/vector/no-image-available-like-missing-picture.jpg?s=612x612&w=0&k=20&c=4X-znbt02a8EIdxwDFaxfmKvUhTnLvLMv1i1f3bToog=`
+                    }
                     alt=""
                   />
                 </div>
