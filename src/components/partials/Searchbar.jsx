@@ -10,7 +10,6 @@ function Searchbar() {
     try {
       const { data } = await axios.get(`/search/multi?query=${val}`);
       setSearches(data.results);
-      console.log(data.results);
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +64,7 @@ function Searchbar() {
                       {item.original_title || item.title || item.name}
                     </h1>
                   </div>
-                  <div className="">
+                  <div>
                     <p className="text-white text-xs">{item.overview}</p>
                   </div>
                 </div>
