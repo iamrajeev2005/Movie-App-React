@@ -6,21 +6,39 @@ function Banner() {
 
   const getBanner = async () => {
     const { data } = await axios.get(`trending/all/day`);
-    setBanner(data.results[(Math.random() * data.results.length).toFixed()]);
+    setBanner(data.results[Math.floor(Math.random() * data.results.length)]);
   };
   useEffect(() => {
     getBanner();
   }, []);
+  console.log(banner);
 
   return (
-    <div className="relative w-full h-[50vh] z-10">
-      <img
-        className="w-full h-full absolute top-0 left-0 object-cover object-center"
-        src={`https://image.tmdb.org/t/p/original/${
-          banner.backdrop_path || banner.profile_path
-        })`}
-        alt=""
-      />
+    <div className="relative w-full h-[50vh]">
+      <div className="relative w-full h-full">
+        <img
+          className=" w-full h-full object-cover object-center"
+          src={`https://image.tmdb.org/t/p/original/${
+            banner.backdrop_path || banner.profile_path
+          })`}
+          alt=""
+        />
+        <div
+          style={{
+            background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4),rgba(0,0,0,.7))`,
+          }}
+          className="absolute top-0 left-0 w-full h-full z-10"
+        ></div>
+        <div className="absolute z-20 bottom-[10%] left-[2%] text-white flex flex-col gap-4">
+          <h1 className="text-6xl font-semibold">
+            {banner.name ||
+              banner.original_title ||
+              banner.title ||
+              banner.original_name}
+          </h1>
+          <p className="text-sm font-semibold w-[80%]">{banner.overview}</p>
+        </div>
+      </div>
     </div>
   );
 }
