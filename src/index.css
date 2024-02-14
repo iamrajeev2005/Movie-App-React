@@ -2,5 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #6556cd;
+  border-radius: 100px;
+  height: 10px;
+}
+
+div.horizontal-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+div.horizontal-scroll::-webkit-scrollbar-thumb {
+  background-color: #6556cd;
+  width: 5px;
+  border-radius: 100px;
+}
+
 /* primary color = '#1F1E24'
 second color = '#6556CD' */

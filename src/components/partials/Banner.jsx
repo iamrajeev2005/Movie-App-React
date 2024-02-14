@@ -12,7 +12,6 @@ function Banner() {
   useEffect(() => {
     getBanner();
   }, []);
-  console.log(banner);
 
   return (
     <div className="relative w-full h-[50vh]">

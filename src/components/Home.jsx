@@ -2,15 +2,17 @@ import React from "react";
 import Sidebar from "./partials/Sidebar";
 import Searchbar from "./partials/Searchbar";
 import Banner from "./partials/Banner";
+import Cards from "./partials/Cards";
 
 function Home() {
   document.title = "Homepage";
   return (
     <>
       <Sidebar />
-      <div className="w-[80%] h-full ">
+      <div className="w-[80%] h-full overflow-y-auto overflow-hidden">
         <Searchbar />
-        <Banner/>
+        <Banner />
+        <Cards />
       </div>
     </>
   );
