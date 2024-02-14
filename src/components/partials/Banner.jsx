@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import axios from "../../../utils/axios";
 import React, { useEffect, useState } from "react";
 
@@ -25,7 +26,7 @@ function Banner() {
         />
         <div
           style={{
-            background: `linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.4),rgba(0,0,0,.7))`,
+            background: `linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.4),rgba(0,0,0,.7))`,
           }}
           className="absolute top-0 left-0 w-full h-full z-10"
         ></div>
@@ -37,6 +38,9 @@ function Banner() {
               banner.original_name}
           </h1>
           <p className="text-sm font-semibold w-[80%]">{banner.overview}</p>
+          <Link className="bg-white text-black w-fit py-2 px-3 rounded-md font-semibold">
+            <i class="ri-play-fill"></i> Watch trailer
+          </Link>
         </div>
       </div>
     </div>
