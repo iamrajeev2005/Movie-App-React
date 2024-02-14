@@ -34,7 +34,7 @@ function Searchbar() {
         )}
       </div>
       <div className="flex items-center justify-end mr-8">
-        <div className="absolute top-[100%] w-[26vw] bg-[#333238] max-h-[78vh] rounded-lg overflow-y-auto overflow-x-hidden">
+        <div className="absolute top-[100%] w-[26vw] bg-[#333238] max-h-[78vh] rounded-lg overflow-y-auto overflow-x-hidden z-40">
           {searches.map((item, index) => {
             return (
               <Link

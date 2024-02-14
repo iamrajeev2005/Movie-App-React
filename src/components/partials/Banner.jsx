@@ -38,8 +38,8 @@ function Banner() {
               banner.original_name}
           </h1>
           <p className="text-sm font-semibold w-[80%]">{banner.overview}</p>
-          <Link className="bg-white text-black w-fit py-2 px-3 rounded-md font-semibold">
-            <i class="ri-play-fill"></i> Watch trailer
+          <Link className="bg-[#6556CD] text-white w-fit py-2 px-3 rounded-md font-semibold">
+            <i className="ri-play-fill"></i> Watch trailer
           </Link>
         </div>
       </div>
