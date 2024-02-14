@@ -19,6 +19,9 @@ div.horizontal-scroll::-webkit-scrollbar-thumb {
   width: 5px;
   border-radius: 100px;
 }
+div.horizontal-scroll::-webkit-scrollbar-track {
+    margin: 0px 15px;
+}
 
 /* primary color = '#1F1E24'
 second color = '#6556CD' */
