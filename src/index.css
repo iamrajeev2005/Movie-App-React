@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* primary color = '#1F1E24'
+second color = '#6556CD' */
+
 ::-webkit-scrollbar {
   width: 7px;
 }
@@ -20,8 +23,48 @@ div.horizontal-scroll::-webkit-scrollbar-thumb {
   border-radius: 100px;
 }
 div.horizontal-scroll::-webkit-scrollbar-track {
-    margin: 0px 15px;
+  margin: 0px 15px;
 }
 
-/* primary color = '#1F1E24'
-second color = '#6556CD' */
+select {
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background-image: none;
+  background: #27272a;
+  flex: 1;
+  padding: 0 0.5em;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  font-family: "open sans", sans-serif;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
+  display: flex;
+  position: relative;
+  height: 3em;
+  width: 15em;
+  background: #27272a;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: 0.25em;
+  margin: 1em 0em;
+}
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #27272a;
+  pointer-events: none;
+  cursor: pointer;
+  transition: all ease 0.25s;
+}
+.select:hover::after {
+  color: #6556cd;
+}
