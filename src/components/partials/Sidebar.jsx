@@ -18,7 +18,7 @@ function Sidebar() {
       </div>
       <div className="flex flex-col gap-2">
         <h1 className="text-xl font-bold py-5">New Feeds</h1>
-        <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
+        <Link to="/trending" className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
           <i className="mr-1 ri-fire-fill"></i>
           Trending
         </Link>
