@@ -4,16 +4,16 @@ import axios from "../../../utils/axios";
 import Dropdown from "./Dropdown";
 
 function Cards() {
-  const [cardImg, setCardImg] = useState([]);
+  const [trending, setTrending] = useState([]);
   const [category, setcategory] = useState("all");
 
-  const getCardImg = async () => {
+  const getTrending = async () => {
     const { data } = await axios.get(`trending/${category}/day`);
-    setCardImg(data.results);
+    setTrending(data.results);
   };
   useEffect(() => {
-    getCardImg();
-  },[category]);
+    getTrending();
+  }, [category]);
   return (
     <div>
       <div className="flex items-center justify-between px-4">
@@ -26,8 +26,8 @@ function Cards() {
       </div>
       <div className="horizontal-scroll overflow-x-auto">
         <div className=" px-4 w-full h-fit my-2">
-          <div className="flex w-[315vw] items-center gap-4">
-            {cardImg.map((item, index) => {
+          <div className="flex w-fit items-center gap-4">
+            {trending.map((item, index) => {
               return <Card key={index} item={item} />;
             })}
           </div>
