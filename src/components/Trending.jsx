@@ -4,6 +4,7 @@ import Searchbar from "./partials/Searchbar";
 import Dropdown from "./partials/Dropdown";
 import Card from "./partials/Card";
 import axios from "../../utils/axios";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function Trending() {
   const navigate = useNavigate();
@@ -12,23 +13,25 @@ function Trending() {
 
   const getTrending = async () => {
     const { data } = await axios.get(`trending/${category}/day`);
-    setTrending(data.results);
+    // setTrending(data.results);
+    setTrending((prev) => [...prev, ...data.results]);
   };
+  console.log(trending);
   useEffect(() => {
     getTrending();
   }, [category]);
 
   return (
-    <div className="w-screen h-screen overflow-hidden overflow-y-auto">
-      <div className="flex w-full items-center justify-between p-8">
+    <div className="w-screen bg-[#1F1E24] ">
+      <div className="flex w-full items-center justify-between px-8 py-4 ">
         <h1 className="text-2xl text-white">
           <i
             onClick={() => navigate(-1)}
-            class="mr-2 cursor-pointer ri-arrow-left-line"
+            className="mr-2 cursor-pointer ri-arrow-left-line"
           ></i>
           Trending
         </h1>
-        <div className="w-[100vw]">
+        <div className="w-screen">
           <Searchbar />
         </div>
         <div>
@@ -39,11 +42,18 @@ function Trending() {
           />
         </div>
       </div>
-      <div className="flex items-center justify-center gap-10 flex-wrap">
-        {trending.map((item, index) => {
-          return <Card key={index} item={item} />;
-        })}
-      </div>
+      <InfiniteScroll
+        dataLength={trending.length}
+        next={getTrending}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}
+      >
+        <div className="flex items-center justify-center flex-wrap gap-10">
+          {trending.map((item, index) => {
+            return <Card key={index} item={item} />;
+          })}
+        </div>
+      </InfiniteScroll>
     </div>
   );
 }
