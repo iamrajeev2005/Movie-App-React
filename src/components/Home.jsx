@@ -9,7 +9,7 @@ function Home() {
   return (
     <>
       <Sidebar />
-      <div className="w-[80%] h-screen overflow-y-auto overflow-hidden">
+      <div className="w-[80%] min-h-screen">
         <Searchbar />
         <Banner />
         <Cards />

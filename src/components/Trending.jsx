@@ -10,19 +10,37 @@ function Trending() {
   const navigate = useNavigate();
   const [trending, setTrending] = useState([]);
   const [category, setcategory] = useState("all");
+  const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
 
   const getTrending = async () => {
-    const { data } = await axios.get(`trending/${category}/day`);
-    // setTrending(data.results);
-    setTrending((prev) => [...prev, ...data.results]);
+    const { data } = await axios.get(`trending/${category}/day?page=${page}`);
+    if(data.results.length > 0){
+      setTrending((prev) => [...prev,...data.results]);
+      setPage(prev => prev + 1);
+    }else{
+      setHasMore(false);
+    }
   };
+
+const fetchMorePage = () => {
+  if(trending.length === 0){
+    getTrending()
+  }else{
+    setPage(page + 1)
+    setTrending([])
+    getTrending()
+  }
+}
+
+
   console.log(trending);
   useEffect(() => {
-    getTrending();
+   fetchMorePage();
   }, [category]);
 
   return (
-    <div className="bg-[#1F1E24] w-full  overflow-hidden overflow-y-auto mx-auto">
+    <div className="bg-[#1F1E24] w-full">
       <div className="flex w-full items-center justify-between px-6 py-4 ">
         <h1 className="text-2xl text-white">
           <i
@@ -42,11 +60,11 @@ function Trending() {
           />
         </div>
       </div>
-      <div className="w-screen ">
+      <div className="w-screen">
         <InfiniteScroll
           dataLength={trending.length}
           next={getTrending}
-          hasMore={true}
+          hasMore={hasMore}
           loader={<h4>Loading...</h4>}
           useWindow={false}
         >
