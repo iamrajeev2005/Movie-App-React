@@ -4,7 +4,7 @@ function Card({ item }) {
   return (
     <div className="relative group w-[15vw] h-[50vh] rounded-lg overflow-hidden cursor-pointer z-10">
       <img
-        className=" w-full h-full object-contain"
+        className=" w-full h-full object-cover"
         src={`https://image.tmdb.org/t/p/w500${item.poster_path})`}
         alt=""
       />
@@ -14,4 +14,3 @@ function Card({ item }) {
 }
 
 export default Card;
- 

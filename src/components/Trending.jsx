@@ -22,7 +22,7 @@ function Trending() {
   }, [category]);
 
   return (
-    <div className="bg-[#1F1E24] w-full  overflow-hidden overflow-y-auto">
+    <div className="bg-[#1F1E24] w-full  overflow-hidden overflow-y-auto mx-auto">
       <div className="flex w-full items-center justify-between px-6 py-4 ">
         <h1 className="text-2xl text-white">
           <i
@@ -50,11 +50,17 @@ function Trending() {
           loader={<h4>Loading...</h4>}
           useWindow={false}
         >
-          <div className="flex items-center justify-center flex-wrap flex-shrink-0 gap-10 ">
+          <div className="flex items-start justify-center flex-wrap gap-10 ">
             {trending.map((item, index) => {
               return (
                 <div key={index}>
                   <Card item={item} />
+                  <div className="text-white font-bold text-xl pt-2 w-[15vw]">
+                    {item.name ||
+                      item.original_title ||
+                      item.title ||
+                      item.original_name}
+                  </div>
                 </div>
               );
             })}
