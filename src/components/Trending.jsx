@@ -7,6 +7,7 @@ import axios from "../../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function Trending() {
+  document.title = "Trending"
   const navigate = useNavigate();
   const [trending, setTrending] = useState([]);
   const [category, setcategory] = useState("all");
@@ -33,8 +34,6 @@ const fetchMorePage = () => {
   }
 }
 
-
-  console.log(trending);
   useEffect(() => {
    fetchMorePage();
   }, [category]);
@@ -66,7 +65,6 @@ const fetchMorePage = () => {
           next={getTrending}
           hasMore={hasMore}
           loader={<h4>Loading...</h4>}
-          useWindow={false}
         >
           <div className="flex items-start justify-center flex-wrap gap-10 ">
             {trending.map((item, index) => {
