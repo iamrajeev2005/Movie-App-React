@@ -5,7 +5,7 @@ import Dropdown from "./partials/Dropdown";
 import Card from "./partials/Card";
 import axios from "../../utils/axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-function Popular() {
+function popular() {
   document.title = "Popular";
   const navigate = useNavigate();
   const [popular, setPopular] = useState([]);
@@ -85,4 +85,4 @@ function Popular() {
   );
 }
 
-export default Popular;
+export default popular;
