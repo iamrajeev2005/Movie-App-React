@@ -5,6 +5,11 @@
 /* primary color = '#1F1E24'
 second color = '#6556CD' */
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 ::-webkit-scrollbar {
   width: 7px;
 }

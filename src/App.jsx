@@ -8,7 +8,7 @@ import People from "./components/People";
 
 function App() {
   return (
-    <div className="bg-[#1F1E24] w-screen  flex ">
+    <div className="bg-[#1F1E24] w-screen  flex min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />

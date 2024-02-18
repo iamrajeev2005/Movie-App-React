@@ -2,7 +2,7 @@ import React from "react";
 
 function Card({ item }) {
   return (
-    <div className="relative group w-[13vw] h-[40vh] rounded-lg overflow-hidden cursor-pointer z-10">
+    <div className="relative group w-[15vw] h-[50vh] rounded-lg overflow-hidden cursor-pointer z-10">
       <img
         className=" w-full h-full object-contain"
         src={`https://image.tmdb.org/t/p/w500${item.poster_path})`}

@@ -22,8 +22,8 @@ function Trending() {
   }, [category]);
 
   return (
-    <div className="w-screen bg-[#1F1E24] ">
-      <div className="flex w-full items-center justify-between px-8 py-4 ">
+    <div className="bg-[#1F1E24] w-full  overflow-hidden overflow-y-auto">
+      <div className="flex w-full items-center justify-between px-6 py-4 ">
         <h1 className="text-2xl text-white">
           <i
             onClick={() => navigate(-1)}
@@ -31,7 +31,7 @@ function Trending() {
           ></i>
           Trending
         </h1>
-        <div className="w-screen">
+        <div className="w-screen ">
           <Searchbar />
         </div>
         <div>
@@ -42,18 +42,25 @@ function Trending() {
           />
         </div>
       </div>
-      <InfiniteScroll
-        dataLength={trending.length}
-        next={getTrending}
-        hasMore={true}
-        loader={<h4>Loading...</h4>}
-      >
-        <div className="flex items-center justify-center flex-wrap gap-10">
-          {trending.map((item, index) => {
-            return <Card key={index} item={item} />;
-          })}
-        </div>
-      </InfiniteScroll>
+      <div className="w-screen ">
+        <InfiniteScroll
+          dataLength={trending.length}
+          next={getTrending}
+          hasMore={true}
+          loader={<h4>Loading...</h4>}
+          useWindow={false}
+        >
+          <div className="flex items-center justify-center flex-wrap flex-shrink-0 gap-10 ">
+            {trending.map((item, index) => {
+              return (
+                <div key={index}>
+                  <Card item={item} />
+                </div>
+              );
+            })}
+          </div>
+        </InfiniteScroll>
+      </div>
     </div>
   );
 }
