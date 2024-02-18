@@ -4,6 +4,9 @@
 
 /* primary color = '#1F1E24'
 second color = '#6556CD' */
+html{
+  overflow-x: hidden;
+}
 
 *{
   margin: 0;
@@ -12,6 +15,7 @@ second color = '#6556CD' */
 }
 ::-webkit-scrollbar {
   width: 7px;
+  background-color: #27272a;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #6556cd;
