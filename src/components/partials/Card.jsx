@@ -1,6 +1,7 @@
 import React from "react";
 
 function Card({ item }) {
+  console.log(item);
   return (
     <div className="relative group w-[15vw] h-[50vh] rounded-lg overflow-hidden cursor-pointer z-10">
       <img
@@ -15,6 +16,16 @@ function Card({ item }) {
         alt=""
       />
       <div className="bg-black h-full w-full absolute top-0 opacity-0 z-20 group-hover:opacity-45 transition-all"></div>
+      {item.vote_average && (
+        <div
+          className={`absolute h-[3vw] w-[3vw] text-white text-xl right-1  flex items-center justify-center bottom-3 rounded-full 
+ ${item.vote_average > 7 ? "bg-green-800" : ""}
+  ${item.vote_average <= 7 && item.vote_average > 5 ? "bg-yellow-500" : ""}
+  ${item.vote_average <= 5 && item.vote_average >= 0 ? "bg-red-700" : ""} z-30`}
+        >
+          {item.vote_average.toFixed()}
+        </div>
+      )}
     </div>
   );
 }
