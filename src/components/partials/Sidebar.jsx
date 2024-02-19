@@ -33,7 +33,7 @@ function Sidebar() {
           Popular
         </Link>
         <Link
-          to="/movies"
+          to="/movie"
           className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg"
         >
           <i className="mr-2 ri-movie-2-fill"></i>

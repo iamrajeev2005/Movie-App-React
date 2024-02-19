@@ -63,7 +63,7 @@ function People() {
             {people.map((item, index) => {
               return (
                 <div key={index}>
-                  <Card item={item} />
+                  <Card item={item} title={"people"}/>
                   <div className="text-white font-bold text-xl pt-2 w-[15vw]">
                     {item.name ||
                       item.original_title ||
