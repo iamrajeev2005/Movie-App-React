@@ -15,7 +15,7 @@ export const asyncSetMovies = (id) => async (dispatch, getState) => {
           externalId: externalId.data,
           recommendations: recommendations.data,
           similar: similar.data,
-          videos: videos.data,
+          videos: videos.data.results.find(m => m.type = "Trailer"),
           watchProviders: watchProviders.data,
         };
         console.log(allDetails)
