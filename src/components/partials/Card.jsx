@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Card({ item,title }) {
-  console.log(item)
   return (
     <Link to={`/${item.media_type || title}/details/${item.id}`}>
       <div className="relative group w-[15vw] h-[50vh] rounded-lg overflow-hidden cursor-pointer z-10">
