@@ -18,6 +18,7 @@ export const asyncSetMovies = (id) => async (dispatch, getState) => {
           videos: videos.data.results.find(m => m.type = "Trailer"),
           watchProviders: watchProviders.data,
         };
+        dispatch(setInfo(allDetails))
         console.log(allDetails)
     } catch (error) {
         console.log(error)

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { asyncSetMovies } from '../store/actions/movieAction'
+import { asyncSetMovies, resetInfo } from '../store/actions/movieAction'
 import { useParams } from 'react-router-dom'
 
 function Moviedetails() {
@@ -8,6 +8,9 @@ function Moviedetails() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(asyncSetMovies(id))
+    return () => {
+      dispatch(resetInfo())
+    }
   },[])
   return (
     <div>Moviedetails</div>
