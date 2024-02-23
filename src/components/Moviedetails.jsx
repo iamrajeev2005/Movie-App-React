@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncSetMovies, resetInfo } from "../store/actions/movieAction";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Searchbar from "../components/partials/Searchbar";
 
 function Moviedetails() {
@@ -18,13 +18,14 @@ function Moviedetails() {
   return info ? (
     <div className="w-screen h-screen relative">
       <img
-        className="h-screen w-screen opacity-30 object-cover object-center"
+        className="h-screen w-screen opacity-20 object-cover object-center"
         src={`https://image.tmdb.org/t/p/original/${info.detail.backdrop_path}`}
         alt=""
       />
       <div className="flex items-start absolute top-0 left-0">
-        <div className=" w-[40vw] object-cover mt-20 ml-20">
+        <div className="h-1/3 w-1/3 mt-20 ml-20">
           <img
+            className="h-full w-full object-cover"
             src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path}`}
             alt=""
           />
@@ -44,6 +45,28 @@ function Moviedetails() {
           <p className="text-md font-semibold mt-6 text-white w-[70%]">
             {info.detail.overview}
           </p>
+          <Link className="bg-white text-black w-fit mt-6 py-3 px-3 rounded-md font-semibold">
+            <i className="ri-play-fill"></i> Watch trailer
+          </Link>
+          <div className="flex items-start flex-col  ">
+            <div className="flex items-center">
+              <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
+                Buy
+                <i className="text-yellow-500 ri-arrow-right-s-line"></i>
+              </div>
+              {info.watchProviders.buy.map((item, index) => {
+                return (
+                  <div key={index} className="flex items-center">
+                    <img
+                      className="w-10 h-10 rounded-lg ml-4 mt-4"
+                      src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                      alt=""
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </div>
