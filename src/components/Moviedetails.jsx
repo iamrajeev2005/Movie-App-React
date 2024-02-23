@@ -48,7 +48,7 @@ function Moviedetails() {
           <Link className="bg-white text-black w-fit mt-6 py-3 px-3 rounded-md font-semibold">
             <i className="ri-play-fill"></i> Watch trailer
           </Link>
-          <div className="flex items-start flex-col  ">
+          <div className="flex items-start gap-5  ">
             <div className="flex items-center">
               <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
                 Buy
@@ -66,6 +66,12 @@ function Moviedetails() {
                 );
               })}
             </div>
+            <Link to={info.watchProviders.link}>
+              <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
+                Watch
+                <i className="text-yellow-500 ri-arrow-right-s-line"></i>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
