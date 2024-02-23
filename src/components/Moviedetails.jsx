@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncSetMovies, resetInfo } from "../store/actions/movieAction";
 import { Link, useParams } from "react-router-dom";
-import Searchbar from "../components/partials/Searchbar";
+import Card from "./partials/Card";
 
 function Moviedetails() {
   const { info } = useSelector((state) => state.movie);
@@ -14,18 +14,18 @@ function Moviedetails() {
     return () => {
       dispatch(resetInfo());
     };
-  }, []);
+  }, [id]);
   return info ? (
-    <div className="w-screen h-screen relative">
+    <div className="w-screen min-h-screen relative">
       <img
         className="h-screen w-screen opacity-20 object-cover object-center"
         src={`https://image.tmdb.org/t/p/original/${info.detail.backdrop_path}`}
         alt=""
       />
       <div className="flex items-start absolute top-0 left-0">
-        <div className="h-1/3 w-1/3 mt-20 ml-20">
+        <div className="h-[25vw] w-[35vw] mt-20 ml-20">
           <img
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path}`}
             alt=""
           />
@@ -49,35 +49,68 @@ function Moviedetails() {
             <i className="ri-play-fill"></i> Watch trailer
           </Link>
           <div className="flex items-start gap-5  ">
-            <div className="flex items-center">
-              <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
-                Buy
-                <i className="text-yellow-500 ri-arrow-right-s-line"></i>
+            {info.watchProviders?.buy ? (
+              <div className="flex items-center">
+                <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
+                  Buy
+                  <i className="text-yellow-500 ri-arrow-right-s-line"></i>
+                </div>
+                {info.watchProviders?.buy?.map((item, index) => {
+                  return (
+                    <div key={index} className="flex items-center">
+                      <img
+                        className="w-10 h-10 rounded-lg ml-4 mt-4"
+                        src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                        alt=""
+                      />
+                    </div>
+                  );
+                })}
               </div>
-              {info.watchProviders.buy.map((item, index) => {
-                return (
-                  <div key={index} className="flex items-center">
-                    <img
-                      className="w-10 h-10 rounded-lg ml-4 mt-4"
-                      src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
-                      alt=""
-                    />
-                  </div>
-                );
-              })}
-            </div>
-            <Link to={info.watchProviders.link}>
-              <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
-                Watch
-                <i className="text-yellow-500 ri-arrow-right-s-line"></i>
-              </div>
-            </Link>
+            ) : (
+              ""
+            )}
+            {info.watchProviders ? (
+              <Link to={info.watchProviders?.link}>
+                <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
+                  Watch
+                  <i className="text-yellow-500 ri-arrow-right-s-line"></i>
+                </div>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
+        </div>
+      </div>
+      <div className="-mt-56">
+        <div className="bg-zinc-300 h-[1px] w-screen "></div>
+        <h1 className="text-white text-3xl ml-5 font-semibold mt-2">
+          Recommended For You
+        </h1>
+        <div className="relative">
+          {info.recommendations.length > 0 ? (
+            <div className="horizontal-scroll overflow-x-auto">
+              <div className=" px-4 w-full h-fit my-2">
+                <div className="flex w-fit items-center gap-4">
+                  {info.recommendations.map((item, index) => {
+                    return <Card key={index} item={item} />;
+                  })}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <h1 className="text-5xl text-white text-center">
+              No Information Availabke
+            </h1>
+          )}
         </div>
       </div>
     </div>
   ) : (
-    <h1>Loading</h1>
+    <h1 className="text-white absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+      Loading...
+    </h1>
   );
 }
 
