@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncSetMovies, resetInfo } from "../store/actions/movieAction";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Card from "./partials/Card";
 
 function Moviedetails() {
+  const navigate = useNavigate();
   const { info } = useSelector((state) => state.movie);
   console.log(info);
   const { id } = useParams();
@@ -23,6 +24,10 @@ function Moviedetails() {
         alt=""
       />
       <div className="flex items-start absolute top-0 left-0">
+        <i
+          onClick={() => navigate(-1)}
+          className="text-yellow-500 text-3xl pl-5 pt-5 cursor-pointer ri-arrow-left-line"
+        ></i>
         <div className="text-yellow-500 flex items-center gap-3 absolute top-4 right-5 cursor-pointer">
           <a
             target="_blank"
