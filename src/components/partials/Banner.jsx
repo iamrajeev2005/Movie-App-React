@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 function Banner() {
   const [banner, setBanner] = useState([]);
+  console.log(banner)
 
   const getBanner = async () => {
     const { data } = await axios.get(`trending/all/day`);
@@ -37,7 +38,10 @@ function Banner() {
               banner.original_name}
           </h1>
           <p className="text-sm font-semibold w-[80%]">{banner.overview}</p>
-          <Link className="bg-[#6556CD] text-white w-fit py-2 px-3 rounded-md font-semibold">
+          <Link
+            to={`${banner.media_type}/details/${banner.id}`}
+            className="bg-[#6556CD] text-white w-fit py-2 px-3 rounded-md font-semibold"
+          >
             <i className="ri-play-fill"></i> Watch trailer
           </Link>
         </div>

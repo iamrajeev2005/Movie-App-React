@@ -7,7 +7,6 @@ import Card from "./partials/Card";
 function tvdetails() {
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.tv);
-  console.log(info);
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -112,23 +111,29 @@ function tvdetails() {
         <div className="bg-zinc-300 h-[1px] w-screen "></div>
         <h1 className="text-white text-3xl ml-5 font-semibold mt-2">Seasons</h1>
         <div className="relative">
-          <div className="horizontal-scroll overflow-x-auto">
-            <div className=" px-4 w-full h-fit my-2">
-              <div className="flex w-fit items-center gap-4">
-                {info.detail.seasons.map((item, index) => {
-                  return (
-                    <div className="flex flex-col">
-                      <Card item={item} key={index} />;
-                      <h1 className="text-2xl text-white font-semibold">
-                        {item.name}
-                      </h1>
-                      ;
-                    </div>
-                  );
-                })}
+          {info.detail.seasons ? (
+            <div className="horizontal-scroll overflow-x-auto">
+              <div className=" px-4 w-full h-fit my-2">
+                <div className="flex w-fit items-center gap-4">
+                  {info.detail.seasons.map((item, index) => {
+                    return (
+                      <div key={index} className="flex flex-col">
+                        <Card item={item}  title={"tv"} />;
+                        <h1 className="text-2xl text-white font-semibold">
+                          {item.name}
+                        </h1>
+                        ;
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <h1 className="text-5xl text-white text-center">
+              No Information Availabke
+            </h1>
+          )}
         </div>
         <div className="bg-zinc-300 h-[1px] w-screen "></div>
         <h1 className="text-white text-3xl ml-5 font-semibold mt-2">
