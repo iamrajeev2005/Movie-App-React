@@ -23,6 +23,23 @@ function Moviedetails() {
         alt=""
       />
       <div className="flex items-start absolute top-0 left-0">
+        <div className="text-yellow-500 flex items-center gap-3 absolute top-4 right-5 cursor-pointer">
+          <a
+            target="_blank"
+            href={`https://www.wikidata.org/wiki/${info.detail.homepage}`}
+          >
+            Wikipedia
+          </a>
+          <a
+            target="_blank"
+            href={`https://www.imdb.com/title/${info.externalId.imdb_id}`}
+          >
+            IMDB
+          </a>
+          <a target="_blank" href={info.detail.homepage}>
+            Homepage
+          </a>
+        </div>
         <div className="h-[25vw] w-[35vw] mt-20 ml-20">
           <img
             className="h-full w-full object-contain"
@@ -45,7 +62,10 @@ function Moviedetails() {
           <p className="text-md font-semibold mt-6 text-white w-[70%]">
             {info.detail.overview}
           </p>
-          <Link className="bg-white text-black w-fit mt-6 py-3 px-3 rounded-md font-semibold">
+          <Link
+            to={`https://www.youtube.com/watch?v=${info.videos.key}`}
+            className="bg-white text-black w-fit mt-6 py-3 px-3 rounded-md font-semibold"
+          >
             <i className="ri-play-fill"></i> Watch trailer
           </Link>
           <div className="flex items-start gap-5  ">
