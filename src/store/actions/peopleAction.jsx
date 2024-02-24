@@ -9,7 +9,6 @@ export const asyncSetperson = (id) => async (dispatch, getState) => {
       detail: detail.data,
     };
     dispatch(setInfo(allDetails));
-    console.log(allDetails);
   } catch (error) {
     console.log(error);
   }
