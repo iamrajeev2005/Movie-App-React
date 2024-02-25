@@ -98,7 +98,18 @@ function Peopledetails() {
                 <div className=" px-4 w-full h-fit my-2">
                   <div className="flex w-fit items-center gap-4">
                     {info.movieCredits?.map((item, index) => {
-                      return <Card key={index} item={item} />;
+                      return (
+                        <div
+                          key={index}
+                          className="flex flex-col items-start justify-start"
+                        >
+                          <Card item={item} title={"movie"} />;
+                          <h1 className="text-xl text-white font-semibold">
+                            {item.original_title.slice(0, 20)}
+                          </h1>
+                          ;
+                        </div>
+                      );
                     })}
                   </div>
                 </div>
@@ -120,7 +131,18 @@ function Peopledetails() {
               <div className=" px-4 w-full h-fit my-2">
                 <div className="flex w-fit items-center gap-4">
                   {info.tvCredits?.map((item, index) => {
-                    return <Card key={index} item={item} />;
+                    return (
+                      <div key={index} className="flex flex-col items-start">
+                        <Card item={item} title={"tv"} />;
+                        <h1 className="text-xl text-white font-semibold">
+                          {item.name ||
+                            item.original_title ||
+                            item.title ||
+                            item.original_name}
+                        </h1>
+                        ;
+                      </div>
+                    );
                   })}
                 </div>
               </div>
