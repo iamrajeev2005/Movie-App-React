@@ -50,7 +50,7 @@ function tvdetails() {
             Homepage
           </a>
         </div>
-        <div className="h-[25vw] w-[65vw] mt-20 ml-20">
+        <div className="h-[25vw] w-[30vw] mt-20 ml-20">
           <img
             className="h-full w-full object-contain"
             src={`https://image.tmdb.org/t/p/original/${info?.detail?.poster_path}`}
