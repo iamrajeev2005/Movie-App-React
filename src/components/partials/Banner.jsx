@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 
 function Banner() {
   const [banner, setBanner] = useState([]);
-  console.log(banner)
 
   const getBanner = async () => {
     const { data } = await axios.get(`trending/all/day`);

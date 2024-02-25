@@ -73,6 +73,11 @@ function Sidebar() {
           <i className="mr-2 ri-phone-fill"></i>
           Contact us
         </Link>
+        <div
+          className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg"
+        >
+          Made By Rajeev ❤
+        </div>
       </div>
     </div>
   );

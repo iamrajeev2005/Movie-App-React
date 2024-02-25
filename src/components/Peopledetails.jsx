@@ -8,7 +8,6 @@ import Logo from "./partials/Logo";
 function Peopledetails() {
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.people);
-  console.log(info);
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {

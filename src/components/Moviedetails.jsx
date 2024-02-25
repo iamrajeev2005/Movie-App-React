@@ -8,7 +8,6 @@ import Logo from "./partials/Logo";
 function Moviedetails() {
   const navigate = useNavigate();
   const { info } = useSelector((state) => state.movie);
-  console.log(info);
   const { id } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -114,7 +113,7 @@ function Moviedetails() {
           </div>
         </div>
       </div>
-      <div className="-mt-56">
+      <div className="-mt-48">
         <div className="bg-zinc-300 h-[1px] w-screen "></div>
         <h1 className="text-white text-3xl ml-5 font-semibold mt-2">
           Recommended For You
