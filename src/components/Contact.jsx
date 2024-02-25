@@ -17,7 +17,8 @@ export default function Component() {
             <div className="space-y-2 flex flex-col text-white">
               <label htmlFor="first-name">First name</label>
               <input
-                className="rounded-md py-2 px-1 focus:outline-[#6556CD] text-zinc-700"
+                required
+                className="rounded-md py-2 px-1 bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
                 id="first-name"
                 placeholder="Enter your first name"
               />
@@ -25,7 +26,8 @@ export default function Component() {
             <div className="space-y-2 flex flex-col text-white">
               <label htmlFor="last-name">Last name</label>
               <input
-                className="rounded-md py-2 px-1 focus:outline-[#6556CD] text-zinc-700"
+                required
+                className="rounded-md py-2 px-1 bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
                 id="last-name"
                 placeholder="Enter your last name"
               />
@@ -34,7 +36,8 @@ export default function Component() {
           <div className="space-y-2 text-white">
             <label htmlFor="email">Email</label>
             <input
-              className="rounded-md py-2 px-1 w-full focus:outline-[#6556CD] text-zinc-700"
+              required
+              className="rounded-md py-2 px-1 w-full bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
               id="email"
               placeholder="Enter your email"
               type="email"
@@ -43,7 +46,7 @@ export default function Component() {
           <div className="space-y-2 flex flex-col text-white">
             <label htmlFor="message">Message</label>
             <textarea
-              className="min-h-[100px] rounded-md py-2 px-1 focus:outline-[#6556CD] text-zinc-700"
+              className="min-h-[100px] rounded-md py-2 px-1 bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
               id="message"
               placeholder="Enter your message"
             />
