@@ -59,20 +59,22 @@ export default function Component() {
               discover the films that inspire, entertain, and touch your heart.
             </p>
           </div>
-          <div className="container flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="container flex flex-col items-center justify-center space-y-4 text-center mb-4">
             <h3 className="text-2xl font-bold text-white tracking-tighter sm:text-4xl">
               Experience Movie Mania for yourself
             </h3>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link
+                target="_blank"
                 className="inline-flex h-10 items-center justify-center rounded-md bg-[#6556CD] px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-[#4d467a] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 "
-                href="#"
+                to={"https://github.com/iamrajeev2005"}
               >
                 Go To Github
               </Link>
               <Link
-                className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200  bg-[#6556CD] px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
+                target="_blank"
+                className="inline-flex h-10 text-white items-center justify-center rounded-md border border-gray-200  bg-[#6556CD] px-8 text-sm font-medium shadow-sm transition-colors hover:bg-[#433e68]  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50"
+                to={"https://www.linkedin.com/in/rajeevkumar2005"}
               >
                 Go To LinkedIn
               </Link>
