@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncSettvs, resetInfo } from "../store/actions/tvActions";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Card from "./partials/Card";
+import Logo from "./partials/Logo";
 
 function tvdetails() {
   const navigate = useNavigate();
@@ -23,10 +24,15 @@ function tvdetails() {
         alt=""
       />
       <div className="flex items-start absolute top-0 left-0">
-        <i
-          onClick={() => navigate(-1)}
-          className="text-yellow-500 text-3xl pl-5 pt-5 cursor-pointer ri-arrow-left-line"
-        ></i>
+        <div className="flex items-center gap-2 ">
+          <i
+            onClick={() => navigate(-1)}
+            className="text-yellow-500 text-3xl pl-5 pt-5 cursor-pointer ri-arrow-left-line"
+          ></i>
+          <Link to={`/`} className="mt-4">
+            <Logo />
+          </Link>
+        </div>
         <div className="text-yellow-500 flex items-center gap-3 absolute top-4 right-5 cursor-pointer">
           <a
             target="_blank"
@@ -44,7 +50,7 @@ function tvdetails() {
             Homepage
           </a>
         </div>
-        <div className="h-[25vw] w-[35vw] mt-20 ml-20">
+        <div className="h-[25vw] w-[65vw] mt-20 ml-20">
           <img
             className="h-full w-full object-contain"
             src={`https://image.tmdb.org/t/p/original/${info?.detail?.poster_path}`}
@@ -107,7 +113,7 @@ function tvdetails() {
           </div>
         </div>
       </div>
-      <div className="-mt-56">
+      <div className="-mt-52">
         <div className="bg-zinc-300 h-[1px] w-screen "></div>
         <h1 className="text-white text-3xl ml-5 font-semibold mt-2">Seasons</h1>
         <div className="relative">
@@ -118,7 +124,7 @@ function tvdetails() {
                   {info.detail.seasons.map((item, index) => {
                     return (
                       <div key={index} className="flex flex-col">
-                        <Card item={item}  title={"tv"} />;
+                        <Card item={item} title={"tv"} />;
                         <h1 className="text-2xl text-white font-semibold">
                           {item.name}
                         </h1>

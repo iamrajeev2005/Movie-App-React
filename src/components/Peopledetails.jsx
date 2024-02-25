@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncSetperson, resetInfo } from "../store/actions/peopleAction";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Card from "./partials/Card";
+import Logo from "./partials/Logo";
 
 function Peopledetails() {
   const navigate = useNavigate();
@@ -19,10 +20,15 @@ function Peopledetails() {
   return info ? (
     <div className="w-screen min-h-screen relative">
       <div className="flex items-start absolute top-0 left-0">
-        <i
-          onClick={() => navigate(-1)}
-          className="text-yellow-500 text-3xl pl-5 pt-5 cursor-pointer ri-arrow-left-line"
-        ></i>
+        <div className="flex items-center gap-2 ">
+          <i
+            onClick={() => navigate(-1)}
+            className="text-yellow-500 text-3xl pl-5 pt-5 cursor-pointer ri-arrow-left-line"
+          ></i>
+          <Link to={`/`} className="mt-4">
+            <Logo />
+          </Link>
+        </div>
         <div className="text-yellow-500 flex items-center gap-3 absolute top-4 right-16 cursor-pointer">
           <a
             target="_blank"
@@ -42,7 +48,10 @@ function Peopledetails() {
             </a>
           )}
           {info?.externalId?.instagram_id && (
-            <a target="_blank" href={info?.externalId?.instagram_id}>
+            <a
+              target="_blank"
+              href={`https://www.instagram.com/${info?.externalId?.instagram_id}`}
+            >
               Instagram
             </a>
           )}
