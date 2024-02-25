@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Card({ item,title }) {
+function Card({ item, title }) {
   return (
     <Link to={`/${item.media_type || title}/details/${item.id}`}>
-      <div className="relative group w-[15vw] h-[50vh] rounded-lg overflow-hidden cursor-pointer z-10">
+      <div className="relative group w-[15vw] h-[25vw] rounded-lg overflow-hidden cursor-pointer z-10">
         <img
           className=" w-full h-full object-cover"
           src={
