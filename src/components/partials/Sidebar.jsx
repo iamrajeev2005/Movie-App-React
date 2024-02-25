@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "./Logo"
+import Logo from "./Logo";
 
 function Sidebar() {
   return (
@@ -59,11 +59,17 @@ function Sidebar() {
       </div>
       <hr className="border-none bg-zinc-600 h-[1px] my-3" />
       <div className="flex flex-col gap-2">
-        <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
+        <Link
+          to="/about"
+          className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg"
+        >
           <i className="mr-2 ri-information-fill"></i>
           About Us
         </Link>
-        <Link className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg">
+        <Link
+          to="/contact"
+          className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg"
+        >
           <i className="mr-2 ri-phone-fill"></i>
           Contact us
         </Link>
