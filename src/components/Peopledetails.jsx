@@ -64,24 +64,44 @@ function Peopledetails() {
           <p className="text-sm font-semibold mt-6 text-white w-[80%]">
             {info.detail.biography.slice(0, 600)}
           </p>
-          <div className="flex items-start gap-5">
-            <div className="border-white border-[2px] flex items-center h-10 pb-6 px-2 mt-4 gap-3 ">
-              <h1 className="text-sm font-semibold mt-6 text-white">
-                Birthday
-              </h1>
-              <p className="text-sm font-semibold mt-6 text-white">
-                {info.detail.birthday}
-              </p>
+          <div className="flex items-start gap-5 flex-col">
+            <div className="flex items-center gap-3">
+              <div className="border-white border-[2px] flex items-center h-10 pb-6 px-2 mt-4 gap-3 ">
+                <h1 className="text-sm font-semibold mt-6 text-white">
+                  Birthday
+                </h1>
+                <p className="text-sm text-yellow-500 font-semibold mt-6">
+                  {info.detail.birthday}
+                </p>
+              </div>
+              <div className="border-white border-[2px] flex items-center h-10 pb-6 px-2 mt-4 gap-3 ">
+                <h1 className="text-sm font-semibold mt-6 text-white ">
+                  Deathday
+                </h1>
+                <p className="text-sm font-semibold mt-6 text-yellow-500">
+                  {info.detail?.deathday
+                    ? info.detail?.deathday
+                    : "Funcking Alive"}
+                </p>
+              </div>
             </div>
-            <div className="border-white border-[2px] flex items-center h-10 pb-6 px-2 mt-4 gap-3 ">
-              <h1 className="text-sm font-semibold mt-6 text-white ">
-                Deathday
-              </h1>
-              <p className="text-sm font-semibold mt-6 text-white">
-                {info.detail?.deathday
-                  ? info.detail?.deathday
-                  : "Funcking Alive"}
-              </p>
+            <div className="flex items-center gap-3">
+              <div className="border-white border-[2px] flex items-center h-10 pb-6 px-2 mt-4 gap-3 ">
+                <h1 className="text-sm font-semibold mt-6 text-white">
+                  Gender
+                </h1>
+                <p className="text-sm font-semibold mt-6 text-yellow-500">
+                  {info.detail.gender === 2 ? "Male" : "Female"}
+                </p>
+              </div>
+              <div className="border-white border-[2px] flex items-center h-10 pb-6 px-2 mt-4 gap-3 ">
+                <h1 className="text-sm font-semibold mt-6 text-white ">
+                  Known For
+                </h1>
+                <p className="text-sm font-semibold mt-6 text-yellow-500">
+                  {info.detail.known_for_department}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -121,37 +141,39 @@ function Peopledetails() {
             )}
           </div>
         </div>
-        <div className="bg-zinc-300 h-[1px] w-screen "></div>
-        <h1 className="text-white text-3xl ml-5 font-semibold mt-2">
-          Tv shows
-        </h1>
-        <div className="relative">
-          {info?.tvCredits?.length > 0 ? (
-            <div className="horizontal-scroll overflow-x-auto">
-              <div className=" px-4 w-full h-fit my-2">
-                <div className="flex w-fit items-center gap-4">
-                  {info.tvCredits?.map((item, index) => {
-                    return (
-                      <div key={index} className="flex flex-col items-start">
-                        <Card item={item} title={"tv"} />;
-                        <h1 className="text-xl text-white font-semibold">
-                          {item.name ||
-                            item.original_title ||
-                            item.title ||
-                            item.original_name}
-                        </h1>
-                        ;
-                      </div>
-                    );
-                  })}
+        <div>
+          <div className="bg-zinc-300 h-[1px] w-screen "></div>
+          <h1 className="text-white text-3xl ml-5 font-semibold mt-2">
+            Tv shows
+          </h1>
+          <div className="relative">
+            {info?.tvCredits?.length > 0 ? (
+              <div className="horizontal-scroll overflow-x-auto">
+                <div className=" px-4 w-full h-fit my-2">
+                  <div className="flex w-fit items-center gap-4">
+                    {info.tvCredits?.map((item, index) => {
+                      return (
+                        <div key={index} className="flex flex-col items-start">
+                          <Card item={item} title={"tv"} />;
+                          <h1 className="text-xl text-white font-semibold">
+                            {item.name ||
+                              item.original_title ||
+                              item.title ||
+                              item.original_name}
+                          </h1>
+                          ;
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            <h1 className="text-5xl text-white text-center">
-              No Information Availabke
-            </h1>
-          )}
+            ) : (
+              <h1 className="text-5xl text-white text-center">
+                No Information Availabke
+              </h1>
+            )}
+          </div>
         </div>
       </div>
     </div>
