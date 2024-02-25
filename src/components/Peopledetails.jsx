@@ -22,10 +22,7 @@ function Peopledetails() {
         className="text-yellow-500 text-3xl pl-5 pt-5 cursor-pointer ri-arrow-left-line"
       ></i>
       <div className="text-yellow-500 flex items-center gap-3 absolute top-4 right-5 cursor-pointer">
-        <a
-          target="_blank"
-          href={`https://www.wikidata.org/wiki/`}
-        >
+        <a target="_blank" href={`https://www.wikidata.org/wiki/${info?.externalId?.wikidata_id}`}>
           Wikipedia
         </a>
         <a
@@ -34,9 +31,13 @@ function Peopledetails() {
         >
           IMDB
         </a>
-        {info.detail.homepage ? <a target="_blank" href={info.detail.homepage}>
-          Homepage
-        </a> : ""}
+        {info.detail.homepage ? (
+          <a target="_blank" href={info.detail.homepage}>
+            Homepage
+          </a>
+        ) : (
+          ""
+        )}
       </div>
       <div className="h-[25vw] w-[35vw] mt-20 ml-20">
         <img

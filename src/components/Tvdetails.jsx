@@ -19,7 +19,7 @@ function tvdetails() {
     <div className="w-screen min-h-screen relative">
       <img
         className="h-screen w-screen opacity-20 object-cover object-center"
-        src={`https://image.tmdb.org/t/p/original/${info.detail.backdrop_path}`}
+        src={`https://image.tmdb.org/t/p/original/${info?.detail?.backdrop_path}`}
         alt=""
       />
       <div className="flex items-start absolute top-0 left-0">
@@ -30,24 +30,24 @@ function tvdetails() {
         <div className="text-yellow-500 flex items-center gap-3 absolute top-4 right-5 cursor-pointer">
           <a
             target="_blank"
-            href={`https://www.wikidata.org/wiki/${info.detail.homepage}`}
+            href={`https://www.wikidata.org/wiki/${info?.detail?.homepage}`}
           >
             Wikipedia
           </a>
           <a
             target="_blank"
-            href={`https://www.imdb.com/title/${info.externalId.imdb_id}`}
+            href={`https://www.imdb.com/title/${info?.externalId?.imdb_id}`}
           >
             IMDB
           </a>
-          <a target="_blank" href={info.detail.homepage}>
+          <a target="_blank" href={info?.detail?.homepage}>
             Homepage
           </a>
         </div>
         <div className="h-[25vw] w-[35vw] mt-20 ml-20">
           <img
             className="h-full w-full object-contain"
-            src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${info?.detail?.poster_path}`}
             alt=""
           />
         </div>
@@ -67,7 +67,7 @@ function tvdetails() {
             {info.detail.overview}
           </p>
           <Link
-            to={`https://www.youtube.com/watch?v=${info.videos.key}`}
+            to={`https://www.youtube.com/watch?v=${info?.videos?.key}`}
             className="bg-white text-black w-fit mt-6 py-3 px-3 rounded-md font-semibold"
           >
             <i className="ri-play-fill"></i> Watch trailer
@@ -84,7 +84,7 @@ function tvdetails() {
                     <div key={index} className="flex items-center">
                       <img
                         className="w-10 h-10 rounded-lg ml-4 mt-4"
-                        src={`https://image.tmdb.org/t/p/original/${item.logo_path}`}
+                        src={`https://image.tmdb.org/t/p/original/${item?.logo_path}`}
                         alt=""
                       />
                     </div>
@@ -95,7 +95,7 @@ function tvdetails() {
               ""
             )}
             {info.watchProviders ? (
-              <Link to={info.watchProviders?.link}>
+              <Link to={info?.watchProviders?.link}>
                 <div className="bg-black text-yellow-500 mt-5 rounded-lg py-3 px-5">
                   Watch
                   <i className="text-yellow-500 ri-arrow-right-s-line"></i>
@@ -140,11 +140,11 @@ function tvdetails() {
           Recommended For You
         </h1>
         <div className="relative">
-          {info.recommendations.length > 0 ? (
+          {info?.recommendations.length > 0 ? (
             <div className="horizontal-scroll overflow-x-auto">
               <div className=" px-4 w-full h-fit my-2">
                 <div className="flex w-fit items-center gap-4">
-                  {info.recommendations.map((item, index) => {
+                  {info?.recommendations.map((item, index) => {
                     return <Card key={index} item={item} />;
                   })}
                 </div>
