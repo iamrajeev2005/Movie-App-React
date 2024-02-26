@@ -73,6 +73,7 @@ function Moviedetails() {
             {info.detail.overview}
           </p>
           <Link
+          target="_blank"
             to={`https://www.youtube.com/watch?v=${info.videos.key}`}
             className="bg-white text-black w-fit mt-6 py-3 px-3 rounded-md font-semibold"
           >

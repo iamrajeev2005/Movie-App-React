@@ -12,7 +12,11 @@ export default function Component() {
             possible.
           </p>
         </div>
-        <div className="flex flex-col gap-4">
+        <form
+          action="https://formspree.io/f/xnqevdvj"
+          method="POST"
+          className="flex flex-col gap-4"
+        >
           <div className="flex items-center gap-4">
             <div className="space-y-2 flex flex-col text-white">
               <label htmlFor="first-name">First name</label>
@@ -20,6 +24,8 @@ export default function Component() {
                 required
                 className="rounded-md py-2 px-1 bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
                 id="first-name"
+                type="text"
+                name="first-name"
                 placeholder="Enter your first name"
               />
             </div>
@@ -29,6 +35,8 @@ export default function Component() {
                 required
                 className="rounded-md py-2 px-1 bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
                 id="last-name"
+                type="text"
+                name="last-name"
                 placeholder="Enter your last name"
               />
             </div>
@@ -39,8 +47,9 @@ export default function Component() {
               required
               className="rounded-md py-2 px-1 w-full bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
               id="email"
-              placeholder="Enter your email"
               type="email"
+              name="email"
+              placeholder="Enter your email"
             />
           </div>
           <div className="space-y-2 flex flex-col text-white">
@@ -48,15 +57,19 @@ export default function Component() {
             <textarea
               className="min-h-[100px] rounded-md py-2 px-1 bg-[#1F1E24] border-zinc-300 border-[1px] focus:outline-[#6556CD] text-zinc-200"
               id="message"
+              name="message"
               placeholder="Enter your message"
-            />
+            ></textarea>
           </div>
           <div className="flex items-center justify-center">
-            <button className="text-white bg-[#6556CD] w-fit px-3 py-2 rounded-md hover:bg-[#473f7c]">
+            <button
+              type="submit"
+              className="text-white bg-[#6556CD] w-fit px-3 py-2 rounded-md hover:bg-[#473f7c]"
+            >
               Send message
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
