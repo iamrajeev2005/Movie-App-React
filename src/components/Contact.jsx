@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./partials/Sidebar";
 export default function Component() {
   return (
-    <div className="flex items-center gap-[20vw] w-screen h-screen px-4 border-zinc-600">
+    <div className="flex items-center gap-[20vw] w-screen h-screen border-zinc-600">
       <Sidebar />
       <div className="space-y-8 h-screen py-12 md:py-24 lg:py-32">
         <div className="space-y-2">

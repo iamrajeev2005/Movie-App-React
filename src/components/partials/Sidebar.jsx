@@ -4,7 +4,7 @@ import Logo from "./Logo";
 
 function Sidebar() {
   return (
-    <div className="w-[20%] h-full border-r-2 border-zinc-600 text-white p-6">
+    <div className="w-[20%] h-full border-r-2 border-zinc-600 text-white p-6 sticky top-0 left-0">
       <div className="flex items-center gap-3 ">
         <div className="h-7 w-7">
           <svg
@@ -19,8 +19,7 @@ function Sidebar() {
           <Logo />
         </Link>
       </div>
-      <div className="flex flex-col gap-2">
-        <h1 className="text-xl font-bold py-5">New Feeds</h1>
+      <div className="flex flex-col gap-2 mt-12">
         <Link
           to="/trending"
           className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg"
@@ -73,9 +72,7 @@ function Sidebar() {
           <i className="mr-2 ri-phone-fill"></i>
           Contact us
         </Link>
-        <div
-          className="hover:text-white hover:bg-[#6556CD] p-4 duration-200 rounded-lg"
-        >
+        <div className=" p-4 duration-200 rounded-lg">
           Made By Rajeev ❤
         </div>
       </div>
